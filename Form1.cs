@@ -15,6 +15,13 @@ namespace mcModpackInstaller
 {
     public partial class Form1 : Form
     {
+        /* 
+        TODO:
+        - Добавить проверку при добавлении модов для разных API (например, если пользователь одновременно добавляет мод для Forge и Fabric.
+        - Добавить проверку при указании папки с Minecraft, которая проверяла бы, может ли в этой папке быть установлен Minecraft.
+        - Добавить поддержку перезаписи файлов при установке модов. Сейчас, программа просто жалуеться на существование файла в выходной папке.
+        - Добавить возможность при очистке Minecraft выбирать то, что конкретно пользователь хочет очистить, а также поддержку пресетов очистки.
+        */
         public Form1()
         {
             InitializeComponent();
@@ -37,12 +44,12 @@ namespace mcModpackInstaller
 
         private bool DoesDotMinecraftExist()
         {
-            return Directory.Exists(Environment.GetEnvironmentVariable("appdata") + "\\.minecraft");
+            return Directory.Exists(Environment.GetEnvironmentVariable("appdata") + "\\.minecraft"); // ориентируется на то, что переменная среды %AppData% существует, которая есть только в Windows. Думаю, те, у кого Linux, сами смогут установить моды =)
         }
 
         private void mcPathChoose_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            FolderBrowserDialog fbd = new FolderBrowserDialog(); // выбор папки
             if (fbd.ShowDialog() == DialogResult.OK)
             {
                 mcPath.Text = fbd.SelectedPath;
@@ -51,10 +58,10 @@ namespace mcModpackInstaller
 
         private async void button2_Click(object sender, EventArgs e)
         {
-            OpenFileDialog opf = new OpenFileDialog();
+            OpenFileDialog opf = new OpenFileDialog(); // выбор файлов
             opf.Title = "Выберите мод(-ы) и/или архив(-ы)";
             opf.Multiselect = true;
-            opf.Filter = "Одиночний мод (*.jar)|*.jar|Архив со сборкой (*.zip; *.rar; *.7z)|*.zip;*.rar;*.7z|Все файлы (*.*)|*.*";
+            opf.Filter = "Одиночний мод (*.jar)|*.jar|Архив со сборкой (*.zip; *.rar; *.7z)|*.zip;*.rar;*.7z|Все файлы (*.*)|*.*"; // jar, 7z, rar, zip, Все файлы.
             opf.RestoreDirectory = true;
             if (opf.ShowDialog() == DialogResult.OK)
             {
@@ -123,7 +130,7 @@ namespace mcModpackInstaller
             mcPathChoose.Enabled = true;
         }
 
-        private void LockUIElements()
+        private void LockUIElements() // чтобы пользователь не шкодил во время работы программы
         {
             mcPath.ReadOnly = true;
             button1.Enabled = false;
@@ -171,7 +178,7 @@ namespace mcModpackInstaller
                                 MessageBoxIcon.Warning);
                             if (dr == DialogResult.Yes)
                             {
-                                this.Invoke(new MethodInvoker(delegate ()
+                                this.Invoke(new MethodInvoker(delegate () // чтобы можно было менять форму из другого потока
                                 {
                                     whatToInstall.Items.Add(filename);
                                 }
@@ -245,7 +252,7 @@ namespace mcModpackInstaller
                 dotmcFindStatus.ForeColor = DefaultBackColor;
             }
             ));
-            if (filename.EndsWith(".rar"))
+            if (filename.EndsWith(".rar")) // если архив со сборкой в формате rar
             {
                 using (Stream stream = File.OpenRead(filename))
                 {
@@ -255,18 +262,18 @@ namespace mcModpackInstaller
                         Debug.WriteLine(entry);
                         if (entry.IsDirectory)
                         {
-                            if (entry.ToString().EndsWith(".minecraft"))
+                            if (entry.ToString().EndsWith(".minecraft")) // в корне архива - .minecraft
                             {
                                 unzipMode = 0;
                                 break;
                             }
-                            else
+                            else // в корне архива - mods
                             {
                                 unzipMode = 1;
                                 break;
                             }
                         }
-                        else
+                        else // в корне архива - jar-файл(-ы)
                         {
                             unzipMode = 2;
                             break;
@@ -302,7 +309,7 @@ namespace mcModpackInstaller
                     }
                 }    
             }
-            if (filename.EndsWith(".7z"))
+            if (filename.EndsWith(".7z")) // если архив со сборкой в формате 7z
             {
                 using (Stream stream = File.OpenRead(filename))
                 {
@@ -312,18 +319,18 @@ namespace mcModpackInstaller
                         Debug.WriteLine(entry);
                         if (entry.IsDirectory)
                         {
-                            if (entry.ToString().EndsWith(".minecraft"))
+                            if (entry.ToString().EndsWith(".minecraft")) // в корне архива - .minecraft
                             {
                                 unzipMode = 0;
                                 break;
-                            }    
-                            else
+                            }
+                            else // в корне архива - mods
                             {
                                 unzipMode = 1;
                                 break;
                             }
-                        }   
-                        else
+                        }
+                        else // в корне архива - jar-файл(-ы)
                         {
                             unzipMode = 2;
                             break;
@@ -359,24 +366,24 @@ namespace mcModpackInstaller
                     }
                 }
             }    
-            else if (filename.EndsWith(".zip"))
+            else if (filename.EndsWith(".zip")) // если архив со сборкой в формате zip
             {
                 using (ZipArchive zip = ZipFile.Open(filename, ZipArchiveMode.Read))
                 {
                     foreach (ZipArchiveEntry entry in zip.Entries)
                     {
                         Debug.WriteLine(entry);
-                        if (entry.FullName.EndsWith(".minecraft/"))
+                        if (entry.FullName.EndsWith(".minecraft/")) // в корне архива - .minecraft
                         {
                             unzipMode = 0;
                             break;
                         }
-                        else if (entry.FullName.StartsWith("mods/"))
+                        else if (entry.FullName.StartsWith("mods/")) // в корне архива - mods
                         {
                             unzipMode = 1;
                             break;
                         }
-                        else if (entry.FullName.EndsWith(".jar"))
+                        else if (entry.FullName.EndsWith(".jar")) // в корне архива - jar-файл(-ы)
                         {
                             unzipMode = 2;
                             break;
@@ -409,7 +416,7 @@ namespace mcModpackInstaller
             }
         }
 
-        private void PurgeFolder(string folder)
+        private void PurgeFolder(string folder) // чистка папки от файлов и подпапок без удаления самой папки
         {
             foreach (var file in Directory.GetFiles(folder))
             {
