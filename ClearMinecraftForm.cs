@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Media;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -30,8 +32,12 @@ namespace mcModpackInstaller
         Color FormBackColor = ColorTranslator.FromHtml("#383838");
         Color ContolsBackColor = ColorTranslator.FromHtml("#252525");
 
+        // language (depends on OS language)
+        CultureInfo ci = CultureInfo.InstalledUICulture;
+
         public ClearMinecraftForm(string mcPath, bool darkTheme)
         {
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(ci.Name);
             InitializeComponent();
             SendMessage(this.Handle, WM_SETICON, ICON_SMALL, Properties.Resources.mcModpackInstaller_small.Handle);
             SendMessage(this.Handle, WM_SETICON, ICON_BIG, Properties.Resources.mcModpackInstaller_large.Handle); // part of setting icons
@@ -69,88 +75,82 @@ namespace mcModpackInstaller
 
         private void configBox_MouseHover(object sender, EventArgs e)
         {
-            uniToolTip.SetToolTip(configBox, "Папка для хранения модами своих настроек. Сам Minecraft здесь НЕ хранит свои настройки." +
-                "\nТакже стоит отметить, что настройки управления от модов храняться в настройках самого Minecraft.");
+            uniToolTip.SetToolTip(configBox, Resources.Localizations.Tooltip.Tooltip.TooltipConfig);
         }
 
         private void coremodsBox_MouseHover(object sender, EventArgs e)
         {
-            uniToolTip.SetToolTip(coremodsBox, "Папка для установки спецальных модов, которые могут не только добавлять новый код, но и менять старый." +
-                " Чаще всего, это библиотеки\nили API для других модов. " +
-                "Актуально только для версий Minecraft до 1.5.2, сейчас такие моды загружаются из папки mods.");
+            uniToolTip.SetToolTip(coremodsBox, Resources.Localizations.Tooltip.Tooltip.TooltipCoremods);
         }
 
         private void logsBox_MouseHover(object sender, EventArgs e)
         {
-            uniToolTip.SetToolTip(logsBox, "Папка для хранения файлов журналов, в которых расписаны события, которые произошли за определённый сеанс игры, включая вылеты. " +
-                "\nСтоит оставлять, только если вы - тестер или собираетесь писать на какой-либо форум с проблемой вылета игры.");
+            uniToolTip.SetToolTip(logsBox, Resources.Localizations.Tooltip.Tooltip.TooltipLogs);
         }
 
         private void modsBox_MouseHover(object sender, EventArgs e)
         {
-            uniToolTip.SetToolTip(modsBox, "Папка для установки модов. Не знаете, что такое моды? Тогда зачем вам эта программа? =)");
+            uniToolTip.SetToolTip(modsBox, Resources.Localizations.Tooltip.Tooltip.TooltipMods);
         }
 
         private void resourcepacksBox_MouseHover(object sender, EventArgs e)
         {
-            uniToolTip.SetToolTip(resourcepacksBox, "Папка для установки ресурс-паков - официального инструмента для модификации и добавления новых текстур, звуков и моделей.");
+            uniToolTip.SetToolTip(resourcepacksBox, Resources.Localizations.Tooltip.Tooltip.TooltipResourcepacks);
         }
 
         private void savesBox_MouseHover(object sender, EventArgs e)
         {
-            uniToolTip.SetToolTip(savesBox, "Папка для хранения миров, созданных игроком.");
+            uniToolTip.SetToolTip(savesBox, Resources.Localizations.Tooltip.Tooltip.TooltipSaves);
         }
 
         private void screenshotsBox_MouseHover(object sender, EventArgs e)
         {
-            uniToolTip.SetToolTip(screenshotsBox, "Папка для хранения скриншотов, сделанных при помощи нажатия кнопки F2 в игре");
+            uniToolTip.SetToolTip(screenshotsBox, Resources.Localizations.Tooltip.Tooltip.TooltipScreenshots);
         }
 
         private void serverresourcepacksBox_MouseHover(object sender, EventArgs e)
         {
-            uniToolTip.SetToolTip(serverresourcepacksBox, "Папка, в которой кэшируються ресурс-паки, скачанные для игры на серверах со своими ресурс-паками. " +
-                "\nКак пример такого сервера можно назвать Hypixel, а именно режим Cops and Crims.");
+            uniToolTip.SetToolTip(serverresourcepacksBox, Resources.Localizations.Tooltip.Tooltip.TooltipServerResourcePacks);
         }
 
         private void shaderpacksBox_MouseHover(object sender, EventArgs e)
         {
-            uniToolTip.SetToolTip(shaderpacksBox, "Папка для установки шейдеров - особих мини-программ, которые испольняються видеокартой и, в случае с Minecraft, модифицируют уже имеющуюся картинку.");
+            uniToolTip.SetToolTip(shaderpacksBox, Resources.Localizations.Tooltip.Tooltip.TooltipShaderpacks);
         }
 
         private void structuresBox_MouseHover(object sender, EventArgs e)
         {
-            uniToolTip.SetToolTip(structuresBox, "Папка для хранения модами пользовательских структур. Эта папка никак не влияет на существующие в Minecraft структуры, " +
-                "\nа также на структуры, которые были созданы с помощью структурного блока, такие храняться в папке с миром, в котором эта структура была сохранена.");
+            uniToolTip.SetToolTip(structuresBox, Resources.Localizations.Tooltip.Tooltip.TooltipStructures);
         }
 
         private void texturepacksBox_MouseHover(object sender, EventArgs e)
         {
-            uniToolTip.SetToolTip(texturepacksBox, "Папка для установки текстур-паков - официального инструмента только для модификации и добавления новых текстур. " +
-                "\nВ снапшоте 13w24a для версии 1.6.1 текстур-паки были упразднены и заменены на ресурс-паки.");
+            uniToolTip.SetToolTip(texturepacksBox, Resources.Localizations.Tooltip.Tooltip.TooltipTexturepacks);
         }
 
         private void optionsTxtBox_MouseHover(object sender, EventArgs e)
         {
-            uniToolTip.SetToolTip(optionsTxtBox, "Файл, где храняться все настройки Minecraft, а также настройки управления для модов.");
+            uniToolTip.SetToolTip(optionsTxtBox, Resources.Localizations.Tooltip.Tooltip.TooltipOptionsTxt);
         }
 
         private void serversDatBox_MouseHover(object sender, EventArgs e)
         {
-            uniToolTip.SetToolTip(serversDatBox, "Файл, где храниться вся информация о серверах Minecraft, которые были добавлены в список серверов игроком.");
+            uniToolTip.SetToolTip(serversDatBox, Resources.Localizations.Tooltip.Tooltip.TooltipServersDat);
         }
 
         private void serversDatOldBox_MouseHover(object sender, EventArgs e)
         {
-            uniToolTip.SetToolTip(serversDatOldBox, "Резервная копия файла servers.dat, сделанная самим Minecraft.");
+            uniToolTip.SetToolTip(serversDatOldBox, Resources.Localizations.Tooltip.Tooltip.TooltipServersDatOld);
         }
 
         private void variousModsBox_MouseHover(object sender, EventArgs e)
         {
-            uniToolTip.SetToolTip(variousModsBox, "Удаляет остатки от разных модов, как например папку journeymap или файл crafttweaker.log.");
+            uniToolTip.SetToolTip(variousModsBox, Resources.Localizations.Tooltip.Tooltip.TooltipVariousMods);
         }
 
         private void purge_Click(object sender, EventArgs e)
         {
+            LockUIElements();
             StringBuilder clearList = new StringBuilder();
             foreach (var checkBox in this.Controls.OfType<CheckBox>())
             {
@@ -167,11 +167,12 @@ namespace mcModpackInstaller
             {
                 work.Purge(path, item);
             }
-            JobsDone("Чистка завершена.");
+            JobsDone(Resources.Localizations.MessageBox.MessageBox.MessageBoxClearSuccessful);
             foreach (var checkBox in this.Controls.OfType<CheckBox>())
             {
                 checkBox.Checked = false;
             }
+            UnlockUIElements();
         }
 
         private void templates_Click(object sender, EventArgs e)
@@ -200,18 +201,14 @@ namespace mcModpackInstaller
                     }
                 }
             }
-            else
-            {
-
-            }
         }
 
         private void saveTemplateToTxt()
         {
             using (SaveFileDialog sfd = new SaveFileDialog())
             {
-                sfd.Title = "Выберите, куда сохранить шаблон";
-                sfd.Filter = "Тестовый файл с шаблоном (*.txt)|*.txt";
+                sfd.Title = Resources.Localizations.Dialogs.FileDialogs.SaveTemplateTitle;
+                sfd.Filter = Resources.Localizations.Dialogs.FileDialogs.TemplateFilter;
                 sfd.FileName = "Template_*.txt";
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
@@ -240,8 +237,8 @@ namespace mcModpackInstaller
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
-                ofd.Title = "Выберите шаблон";
-                ofd.Filter = "Текстовый файл с шаблоном (*.txt)|*.txt";
+                ofd.Title = Resources.Localizations.Dialogs.FileDialogs.OpenTemplateTitle;
+                ofd.Filter = Resources.Localizations.Dialogs.FileDialogs.TemplateFilter;
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     foreach (var checkBox in this.Controls.OfType<CheckBox>())
@@ -304,19 +301,64 @@ namespace mcModpackInstaller
 
         private void saveTemplate_Click(object sender, EventArgs e)
         {
+            LockUIElements();
             saveTemplateToTxt();
+            UnlockUIElements();
         }
 
         private void loadTemplate_Click(object sender, EventArgs e)
         {
+            LockUIElements();
             loadTemplateFromTxt();
+            UnlockUIElements();
         }
 
         private void clearChecks_Click(object sender, EventArgs e)
         {
+            LockUIElements();
             foreach (var checkBox in this.Controls.OfType<CheckBox>())
             {
                 checkBox.Checked = false;
+            }
+            UnlockUIElements();
+        }
+
+        private async void auto_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = ShowMessage(Resources.Localizations.MessageBox.MessageBox.MessageBoxGeneralCleaningConfirmation, 
+                MessageBoxIcon.Warning, 
+                MessageBoxButtons.YesNo);
+            if (dr == DialogResult.Yes)
+            {
+                LockUIElements();
+                await Task.Run(() => work.Purge(path.Replace(".minecraft", ""), ".minecraft", true));
+                Directory.CreateDirectory(path);
+                JobsDone(Resources.Localizations.MessageBox.MessageBox.MessageBoxClearSuccessful);
+                UnlockUIElements();
+            }
+        }
+
+        private void UnlockUIElements() // enable ui back
+        {
+            foreach (var checkBox in this.Controls.OfType<CheckBox>())
+            {
+                checkBox.Enabled = true;
+            }
+            foreach (var button in this.Controls.OfType<Button>())
+            {
+                button.Enabled = true;
+            }
+        }
+
+        private void LockUIElements() // disable ui for safety
+        {
+            foreach (var checkBox in this.Controls.OfType<CheckBox>())
+            {
+                checkBox.Enabled = false;
+            }
+            foreach (var button in this.Controls.OfType<Button>())
+            {
+                button.Enabled = false;
             }
         }
     }

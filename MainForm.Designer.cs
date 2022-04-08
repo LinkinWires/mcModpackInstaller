@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.label1 = new System.Windows.Forms.Label();
             this.mcPath = new System.Windows.Forms.TextBox();
             this.dotmcFindStatus = new System.Windows.Forms.Label();
@@ -45,109 +46,79 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Папка с Minecraft";
             // 
             // mcPath
             // 
+            resources.ApplyResources(this.mcPath, "mcPath");
             this.mcPath.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.mcPath.Location = new System.Drawing.Point(12, 25);
             this.mcPath.Name = "mcPath";
-            this.mcPath.Size = new System.Drawing.Size(465, 20);
-            this.mcPath.TabIndex = 1;
             // 
             // dotmcFindStatus
             // 
-            this.dotmcFindStatus.AutoSize = true;
-            this.dotmcFindStatus.Location = new System.Drawing.Point(12, 363);
+            resources.ApplyResources(this.dotmcFindStatus, "dotmcFindStatus");
             this.dotmcFindStatus.Name = "dotmcFindStatus";
-            this.dotmcFindStatus.Size = new System.Drawing.Size(97, 13);
-            this.dotmcFindStatus.TabIndex = 2;
-            this.dotmcFindStatus.Text = "Поиск .minecraft...";
             // 
             // mcPathChoose
             // 
-            this.mcPathChoose.Location = new System.Drawing.Point(483, 25);
+            resources.ApplyResources(this.mcPathChoose, "mcPathChoose");
             this.mcPathChoose.Name = "mcPathChoose";
-            this.mcPathChoose.Size = new System.Drawing.Size(24, 20);
-            this.mcPathChoose.TabIndex = 3;
-            this.mcPathChoose.Text = "...";
             this.mcPathChoose.UseVisualStyleBackColor = true;
             this.mcPathChoose.Click += new System.EventHandler(this.mcPathChoose_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(425, 337);
+            resources.ApplyResources(this.button1, "button1");
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Установить";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 337);
+            resources.ApplyResources(this.button2, "button2");
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(23, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "+";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // whatToInstall
             // 
+            resources.ApplyResources(this.whatToInstall, "whatToInstall");
             this.whatToInstall.FormattingEnabled = true;
-            this.whatToInstall.Location = new System.Drawing.Point(12, 67);
             this.whatToInstall.Name = "whatToInstall";
-            this.whatToInstall.Size = new System.Drawing.Size(495, 264);
-            this.whatToInstall.TabIndex = 7;
             this.whatToInstall.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.whatToInstall_MouseDoubleClick);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(41, 337);
+            resources.ApplyResources(this.button3, "button3");
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(66, 23);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Очистить";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // serviceButton
             // 
-            this.serviceButton.Location = new System.Drawing.Point(344, 337);
+            resources.ApplyResources(this.serviceButton, "serviceButton");
             this.serviceButton.Name = "serviceButton";
-            this.serviceButton.Size = new System.Drawing.Size(75, 23);
-            this.serviceButton.TabIndex = 9;
-            this.serviceButton.Text = "Сервис";
             this.serviceButton.UseVisualStyleBackColor = true;
             this.serviceButton.Click += new System.EventHandler(this.serviceButton_Click);
             // 
             // serviceMenu
             // 
+            resources.ApplyResources(this.serviceMenu, "serviceMenu");
             this.serviceMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cleanMC});
             this.serviceMenu.Name = "serviceMenu";
-            this.serviceMenu.Size = new System.Drawing.Size(181, 26);
-            this.serviceMenu.Text = "Сервис";
             // 
             // cleanMC
             // 
+            resources.ApplyResources(this.cleanMC, "cleanMC");
             this.cleanMC.Name = "cleanMC";
-            this.cleanMC.Size = new System.Drawing.Size(180, 22);
-            this.cleanMC.Text = "Очистить Minecraft";
             this.cleanMC.Click += new System.EventHandler(this.cleanMC_Click);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(519, 386);
             this.Controls.Add(this.serviceButton);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.whatToInstall);
@@ -159,7 +130,6 @@
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.Text = "mcModpackInstaller";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.serviceMenu.ResumeLayout(false);
             this.ResumeLayout(false);

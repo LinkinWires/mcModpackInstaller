@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
+using System.Threading;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
@@ -7,6 +9,7 @@ using System.Media;
 using System.Linq;
 using System.Runtime.InteropServices;
 using Microsoft.Win32;
+using System.Globalization;
 
 namespace mcModpackInstaller
 {
@@ -43,8 +46,12 @@ namespace mcModpackInstaller
         Color ContolsBackColor = ColorTranslator.FromHtml("#252525");
         private bool darkTheme = false;
 
+        // language (depends on OS language)
+        CultureInfo ci = CultureInfo.InstalledUICulture;
+
         public MainForm()
         {
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(ci.Name);
             InitializeComponent();
             SendMessage(this.Handle, WM_SETICON, ICON_SMALL, Properties.Resources.mcModpackInstaller_small.Handle);
             SendMessage(this.Handle, WM_SETICON, ICON_BIG, Properties.Resources.mcModpackInstaller_large.Handle); // part of setting icons
@@ -98,14 +105,15 @@ namespace mcModpackInstaller
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(ci.Name);
             if (work.DoesDotMinecraftExist())
             {
-                ChangeStatus(".minecraft найден", DefaultForeColor, TextColor);
+                ChangeStatus(Resources.Localizations.Status.Status.StatusDotMinecraftFound, DefaultForeColor, TextColor);
                 mcPath.Text = Environment.GetEnvironmentVariable("appdata") + "\\.minecraft";
             }
             else
             {
-                ChangeStatus(".minecraft не найден! Укажите папку, в которой установлен Minecraft.", Color.Red, Color.Red);
+                ChangeStatus(Resources.Localizations.Status.Status.StatusDotMinecraftNotFound, Color.Red, Color.Red);
             }
         }
 
@@ -124,9 +132,9 @@ namespace mcModpackInstaller
         {
             using (OpenFileDialog opf = new OpenFileDialog())
             {
-                opf.Title = "Выберите мод(-ы) и/или архив(-ы)";
+                opf.Title = Resources.Localizations.Dialogs.FileDialogs.OpenModModpackTitle;
                 opf.Multiselect = true;
-                opf.Filter = "Одиночний мод (*.jar)|*.jar|Архив со сборкой (*.zip)|*.zip|Все файлы (*.*)|*.*"; // jar, zip, All Files.
+                opf.Filter = Resources.Localizations.Dialogs.FileDialogs.ModModpackFilter; // jar, zip.
                 opf.RestoreDirectory = true;
                 if (opf.ShowDialog() == DialogResult.OK)
                 {
@@ -137,7 +145,7 @@ namespace mcModpackInstaller
                     }
                     UnlockUIElements();
                 }
-                ChangeStatus("Готово", DefaultForeColor, TextColor);
+                ChangeStatus("Ready.", DefaultForeColor, TextColor);
             }
         }
 
@@ -156,15 +164,18 @@ namespace mcModpackInstaller
                             try
                             {
                                 string modInstallDir = mcPath.Text + "\\mods\\" + file.ToString();
-                                ChangeStatus("Установка " + file + "...", DefaultForeColor, TextColor);
+                                ChangeStatus(String.Format(Resources.Localizations.Status.Status.StatusInstallingGeneric, file),
+                                    DefaultForeColor,
+                                    TextColor);
                                 if (!File.Exists(modInstallDir))
                                 {
                                     await Task.Run(() => work.InstallJar(modInstallDir, filename.ToString()));
                                 }
                                 else
                                 {
-                                    DialogResult dr = ShowMessage("Файл с названием " + file + " уже существует в папке mods. " +
-                                        "Вы желаете перезаписать его?", MessageBoxIcon.Warning, MessageBoxButtons.YesNo);
+                                    DialogResult dr = ShowMessage(String.Format(Resources.Localizations.MessageBox.MessageBox.MessageBoxOverwriteConfirmation, file),
+                                        MessageBoxIcon.Warning,
+                                        MessageBoxButtons.YesNo);
                                     if (dr == DialogResult.Yes)
                                     {
                                         await Task.Run(() => work.InstallJar(modInstallDir, filename.ToString(), true));
@@ -173,15 +184,19 @@ namespace mcModpackInstaller
                             }
                             catch (FileNotFoundException)
                             {
-                                ChangeStatus(file + " не найден в исходной директории.", Color.Red, Color.Red);
-                                ShowMessage(file + " не найден в исходной директории. " +
-                                    "Его установка будет пропущена.", MessageBoxIcon.Error);
+                                ChangeStatus(String.Format(Resources.Localizations.Status.Status.StatusSourceFileNotFound, file),
+                                    Color.Red,
+                                    Color.Red);
+                                ShowMessage(String.Format(Resources.Localizations.MessageBox.MessageBox.MessageBoxSourceFileNotFound, file),
+                                    MessageBoxIcon.Error);
                             }
                             catch (IOException)
                             {
-                                ChangeStatus("Файл с названием " + file + " уже существует в папке mods.", Color.Red, Color.Red);
-                                ShowMessage("Файл с названием " + file + " уже существует в папке mods. " +
-                                    "Его установка будет пропущена.", MessageBoxIcon.Error);
+                                ChangeStatus(String.Format(Resources.Localizations.Status.Status.StatusFileAlreadyExists, file),
+                                    Color.Red,
+                                    Color.Red);
+                                ShowMessage(String.Format(Resources.Localizations.MessageBox.MessageBox.MessageBoxFileAlreadyExists, file),
+                                    MessageBoxIcon.Error);
                                 throw;
                             }
                         }
@@ -190,27 +205,31 @@ namespace mcModpackInstaller
                             FileInfo fileSize = new FileInfo(filename.ToString());
                             if (fileSize.Length / 1024 > 102400)
                             {
-                                ChangeStatus("Установка " + file.ToString() + "... (архив занимает " + fileSize.Length / 1048576 + " МБ, это займёт время)", DefaultBackColor, TextColor);
+                                ChangeStatus(String.Format(Resources.Localizations.Status.Status.StatusInstallingBigModpack, file.ToString(), fileSize.Length / 1048576),
+                                    DefaultBackColor,
+                                    TextColor);
                             }
                             else
                             {
-                                ChangeStatus("Установка " + file.ToString() + "...", DefaultBackColor, TextColor);
+                                ChangeStatus(String.Format(Resources.Localizations.Status.Status.StatusInstallingGeneric, file.ToString()),
+                                    DefaultBackColor,
+                                    TextColor);
                             }    
                             await Task.Run(() => work.InstallModPack(mcPath.Text, filename.ToString(), true));
                         }
                     }
-                    JobsDone("Установка завершена");
+                    JobsDone(Resources.Localizations.MessageBox.MessageBox.MessageBoxInstallationSuccessful);
                     whatToInstall.Items.Clear();
                     UnlockUIElements();
                 }
                 else
                 {
-                    ShowMessage("Указанный путь к Minecraft не существует", MessageBoxIcon.Error);
+                    ShowMessage(Resources.Localizations.MessageBox.MessageBox.MessageBoxDotMinecraftPathNotFound, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                ShowMessage("Путь к Minecraft не может быть пустым", MessageBoxIcon.Error);
+                ShowMessage(Resources.Localizations.MessageBox.MessageBox.MessageBoxDotMinecraftPathEmpty, MessageBoxIcon.Error);
             }
         }
 
@@ -222,24 +241,28 @@ namespace mcModpackInstaller
             ShowMessage(message);
         }
 
-        private void UnlockUIElements()
+        private void UnlockUIElements() // enable ui back
         {
-            mcPath.ReadOnly = false;
-            button1.Enabled = true;
-            button2.Enabled = true;
-            button3.Enabled = true;
-            serviceButton.Enabled = true;
-            mcPathChoose.Enabled = true;
+            foreach (var textBox in this.Controls.OfType<TextBox>())
+            {
+                textBox.ReadOnly = false;
+            }
+            foreach (var button in this.Controls.OfType<Button>())
+            {
+                button.Enabled = true;
+            }
         }
 
-        private void LockUIElements() // чтобы пользователь не шкодил во время работы программы
+        private void LockUIElements() // disable ui for safety
         {
-            mcPath.ReadOnly = true;
-            button1.Enabled = false;
-            button2.Enabled = false;
-            button3.Enabled = false;
-            serviceButton.Enabled = false;
-            mcPathChoose.Enabled = false;
+            foreach (var textBox in this.Controls.OfType<TextBox>())
+            {
+                textBox.ReadOnly = true;
+            }
+            foreach (var button in this.Controls.OfType<Button>())
+            {
+                button.Enabled = false;
+            }
         }
 
         private async void AddToList(string filename)
@@ -247,7 +270,9 @@ namespace mcModpackInstaller
             string file = Path.GetFileName(filename);
             this.Invoke(new MethodInvoker(delegate ()
             {
-                ChangeStatus("Добавление " + file + "...", DefaultForeColor, TextColor);
+                ChangeStatus(String.Format(Resources.Localizations.Status.Status.StatusAddingToList, file),
+                    DefaultForeColor,
+                    TextColor);
             }
             ));
             if (!whatToInstall.Items.Contains(filename))
@@ -256,7 +281,7 @@ namespace mcModpackInstaller
                 {
                     if (await Task.Run(() => work.IsAnyInArchive(filename, modIndef)))
                     {
-                        this.Invoke(new MethodInvoker(delegate () // чтобы можно было менять форму из другого потока
+                        this.Invoke(new MethodInvoker(delegate () // change form elements from other thread
                         {
                             whatToInstall.Items.Add(filename);
                         }
@@ -264,12 +289,13 @@ namespace mcModpackInstaller
                     }
                     else if (await Task.Run(() => work.IsInArchive(filename, "plugin.yml")))
                     {
-                        ShowMessage("Этот jar-файл является плагином для сервера Minecraft!", MessageBoxIcon.Error);
+                        ShowMessage(Resources.Localizations.MessageBox.MessageBox.MessageBoxJarIsPlugin,
+                            MessageBoxIcon.Error);
                     }
                     else
                     {
-                        DialogResult dr = ShowMessage("Возникла проблема с опознаванием того, что файл " + file +
-                                " действительно является модом. Вы уверены, что хотите добавть этот файл в список?", MessageBoxIcon.Warning,
+                        DialogResult dr = ShowMessage(String.Format(Resources.Localizations.MessageBox.MessageBox.MessageBoxPotentiallyNotMod, file),
+                            MessageBoxIcon.Warning,
                                 MessageBoxButtons.YesNo);
                         if (dr == DialogResult.Yes)
                         {
@@ -291,18 +317,13 @@ namespace mcModpackInstaller
                 }
                 else
                 {
-                    MessageBox.Show("Файл " + file + "не является ни модом, ни архивом.",
-                        "mcModpackInstaller",
-                        MessageBoxButtons.OK,
+                    ShowMessage(String.Format(Resources.Localizations.MessageBox.MessageBox.MessageBoxFileNotJarOrZip, file),
                         MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show(file + " уже был добавлен.",
-                    "mcModpackInstaller",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                ShowMessage(String.Format(Resources.Localizations.MessageBox.MessageBox.MessageBoxFileAlreadyInList, file), MessageBoxIcon.Error);
             }
         }
 
@@ -338,10 +359,9 @@ namespace mcModpackInstaller
         {
             if (whatToInstall.SelectedItem != null)
             {
-                DialogResult dr = MessageBox.Show("Вы точно хотите удалить " + whatToInstall.SelectedItem + " из списка?"
-                    , "mcModpackInstaller",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning);
+                DialogResult dr = ShowMessage(String.Format(Resources.Localizations.MessageBox.MessageBox.MessageBoxDeleteFromList, whatToInstall.SelectedItem),
+                    MessageBoxIcon.Warning,
+                    MessageBoxButtons.YesNo);
                 if (dr == DialogResult.Yes)
                 {
                     whatToInstall.Items.Remove(whatToInstall.SelectedItem);
@@ -351,10 +371,9 @@ namespace mcModpackInstaller
 
         private void button3_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Вы действительно хотите очистить список?",
-                "mcModpackInstaller",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning);
+            DialogResult dr = ShowMessage(Resources.Localizations.MessageBox.MessageBox.MessageBoxClearList,
+                MessageBoxIcon.Warning,
+                MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
                 whatToInstall.Items.Clear();

@@ -117,23 +117,724 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="serversDatBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>125, 187</value>
+  </data>
+  <data name="texturepacksBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 394</value>
+  </data>
+  <data name="&gt;&gt;optionsTxtBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;serversDatBox.Name" xml:space="preserve">
+    <value>serversDatBox</value>
+  </data>
+  <data name="&gt;&gt;serversDatBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;saveTemplate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="serversDatOldBox.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="modsBox.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;templates.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="serversDatBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 17</value>
+  </data>
+  <data name="&gt;&gt;texturepacksBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Чистка Minecraft удалит всё содержимое папок, которые 
-Вы выберите, пометив соответствующий флажок. 
-На каждый из пунктов можно навести и прочитать 
-пояснения по роли каждой из папок.
+    <value>Minecraft Cleaning will remove all contents of folders and files
+chosen with according check box. Every check box has 
+a tooltip which activates on hovering over it.
 
-Кнопка "Ген. уборка" позволяет удалить абсолютно всё 
-содержимое папки с игрой.
+"Gen. clean" button removes all contents of Minecraft folder.
 
-Кнопка "Шаблоны" позволяет выбрать встроенные в
-саму программу пункты или сохранить текущие
-настройки для дальнейшего их использования.</value>
+"Templates" buttons allows to choose built-in templates
+or save/load custom templates.</value>
+  </data>
+  <data name="&gt;&gt;resourcepacksBox.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;configBox.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="modsBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 233</value>
+  </data>
+  <data name="savesBox.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="modsBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="coremodsBox.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="coremodsBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 17</value>
+  </data>
+  <data name="resourcepacksBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 256</value>
+  </data>
+  <data name="&gt;&gt;configBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;builtinModPackUniversal.Name" xml:space="preserve">
+    <value>builtinModPackUniversal</value>
+  </data>
+  <data name="&gt;&gt;sep2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;auto.Name" xml:space="preserve">
+    <value>auto</value>
+  </data>
+  <data name="&gt;&gt;coremodsBox.Name" xml:space="preserve">
+    <value>coremodsBox</value>
+  </data>
+  <data name="auto.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;loadTemplate.Name" xml:space="preserve">
+    <value>loadTemplate</value>
+  </data>
+  <data name="builtinAll.Text" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="logsBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 210</value>
+  </data>
+  <data name="&gt;&gt;templates.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="resourcepacksBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="coremodsBox.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="serverresourcepacksBox.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;resourcepacksBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="serversDatBox.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;logsBox.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="optionsTxtBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>125, 164</value>
+  </data>
+  <data name="&gt;&gt;variousModsBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="purge.Location" type="System.Drawing.Point, System.Drawing">
+    <value>238, 424</value>
+  </data>
+  <data name="&gt;&gt;templates.Name" xml:space="preserve">
+    <value>templates</value>
+  </data>
+  <data name="logsBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="texturepacksBox.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;savesBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="optionsTxtBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="logsBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 17</value>
+  </data>
+  <data name="optionsTxtBox.Text" xml:space="preserve">
+    <value>options.txt</value>
+  </data>
+  <data name="texturepacksBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 17</value>
+  </data>
+  <data name="screenshotsBox.Text" xml:space="preserve">
+    <value>screenshots</value>
+  </data>
+  <data name="purge.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="optionsTxtBox.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;coremodsBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="serversDatOldBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>125, 210</value>
+  </data>
+  <data name="&gt;&gt;coremodsBox.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="templatesMenu.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="savesBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="templatesMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>293, 170</value>
+  </data>
+  <data name="&gt;&gt;texturepacksBox.Name" xml:space="preserve">
+    <value>texturepacksBox</value>
+  </data>
+  <data name="modsBox.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="resourcepacksBox.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="sep2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>289, 6</value>
+  </data>
+  <data name="coremodsBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 187</value>
+  </data>
+  <data name="structuresBox.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;optionsTxtBox.Name" xml:space="preserve">
+    <value>optionsTxtBox</value>
+  </data>
+  <data name="resourcepacksBox.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;sep.Name" xml:space="preserve">
+    <value>sep</value>
+  </data>
+  <data name="builtinModsOnly.Text" xml:space="preserve">
+    <value>Mods only</value>
+  </data>
+  <data name="&gt;&gt;serversDatBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="variousModsBox.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="shaderpacksBox.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="purge.Text" xml:space="preserve">
+    <value>Clean!</value>
+  </data>
+  <data name="auto.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="variousModsBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 17</value>
+  </data>
+  <data name="variousModsBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="optionsTxtBox.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>295, 104</value>
+  </data>
+  <data name="savesBox.Text" xml:space="preserve">
+    <value>saves</value>
+  </data>
+  <data name="coremodsBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;logsBox.Name" xml:space="preserve">
+    <value>logsBox</value>
+  </data>
+  <data name="configBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 17</value>
+  </data>
+  <data name="&gt;&gt;variousModsBox.Name" xml:space="preserve">
+    <value>variousModsBox</value>
+  </data>
+  <data name="screenshotsBox.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="shaderpacksBox.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;builtinModsOnly.Name" xml:space="preserve">
+    <value>builtinModsOnly</value>
+  </data>
+  <data name="loadTemplate.Text" xml:space="preserve">
+    <value>Load custom template</value>
+  </data>
+  <data name="variousModsBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>125, 233</value>
+  </data>
+  <data name="&gt;&gt;resourcepacksBox.Name" xml:space="preserve">
+    <value>resourcepacksBox</value>
+  </data>
+  <data name="templates.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="configBox.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;templatesMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="serversDatOldBox.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Minecraft Cleaning - mcModpackInstaller</value>
+  </data>
+  <data name="&gt;&gt;screenshotsBox.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="serversDatOldBox.Text" xml:space="preserve">
+    <value>servers.dat_old</value>
+  </data>
+  <data name="templates.Text" xml:space="preserve">
+    <value>Templates</value>
+  </data>
+  <data name="savesBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 17</value>
+  </data>
+  <data name="&gt;&gt;uniToolTip.Name" xml:space="preserve">
+    <value>uniToolTip</value>
+  </data>
+  <data name="&gt;&gt;savesBox.Name" xml:space="preserve">
+    <value>savesBox</value>
+  </data>
+  <data name="&gt;&gt;variousModsBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="serverresourcepacksBox.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;optionsTxtBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;modsBox.Name" xml:space="preserve">
+    <value>modsBox</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="&gt;&gt;saveTemplate.Name" xml:space="preserve">
+    <value>saveTemplate</value>
+  </data>
+  <data name="screenshotsBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 17</value>
+  </data>
+  <data name="&gt;&gt;shaderpacksBox.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="resourcepacksBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 17</value>
+  </data>
+  <data name="loadTemplate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>292, 22</value>
+  </data>
+  <data name="&gt;&gt;shaderpacksBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;serverresourcepacksBox.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="texturepacksBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;purge.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;serverresourcepacksBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;auto.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="$this.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="screenshotsBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="variousModsBox.Text" xml:space="preserve">
+    <value>Remains of various mods</value>
+  </data>
+  <data name="modsBox.Text" xml:space="preserve">
+    <value>mods</value>
+  </data>
+  <data name="&gt;&gt;shaderpacksBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;sep2.Name" xml:space="preserve">
+    <value>sep2</value>
+  </data>
+  <data name="&gt;&gt;coremodsBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="configBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="serverresourcepacksBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 17</value>
+  </data>
+  <data name="&gt;&gt;structuresBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;modsBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="structuresBox.Text" xml:space="preserve">
+    <value>structures</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="shaderpacksBox.Text" xml:space="preserve">
+    <value>shaderpacks</value>
+  </data>
+  <data name="auto.Text" xml:space="preserve">
+    <value>Gen. clean</value>
+  </data>
+  <data name="&gt;&gt;texturepacksBox.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;clearChecks.Name" xml:space="preserve">
+    <value>clearChecks</value>
+  </data>
+  <data name="&gt;&gt;purge.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;screenshotsBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;uniToolTip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="purge.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="builtinModPackUniversal.Text" xml:space="preserve">
+    <value>Universal cleaning for installing modpack</value>
+  </data>
+  <data name="&gt;&gt;serverresourcepacksBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;configBox.Name" xml:space="preserve">
+    <value>configBox</value>
+  </data>
+  <data name="&gt;&gt;purge.Name" xml:space="preserve">
+    <value>purge</value>
+  </data>
+  <data name="clearChecks.Size" type="System.Drawing.Size, System.Drawing">
+    <value>292, 22</value>
+  </data>
+  <data name="&gt;&gt;templatesMenu.Name" xml:space="preserve">
+    <value>templatesMenu</value>
+  </data>
+  <data name="serverresourcepacksBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 325</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>ClearMinecraftForm</value>
+  </data>
+  <data name="builtinModPackUniversal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>292, 22</value>
+  </data>
+  <data name="structuresBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 17</value>
+  </data>
+  <data name="variousModsBox.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="shaderpacksBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 17</value>
+  </data>
+  <data name="serverresourcepacksBox.Text" xml:space="preserve">
+    <value>server-resource-packs</value>
+  </data>
+  <data name="&gt;&gt;builtinAll.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;auto.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="texturepacksBox.Text" xml:space="preserve">
+    <value>texturepacks</value>
+  </data>
+  <data name="&gt;&gt;screenshotsBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="resourcepacksBox.Text" xml:space="preserve">
+    <value>resourcepacks</value>
+  </data>
+  <data name="screenshotsBox.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="templates.Location" type="System.Drawing.Point, System.Drawing">
+    <value>125, 424</value>
+  </data>
+  <data name="clearChecks.Text" xml:space="preserve">
+    <value>Clear choice</value>
+  </data>
+  <data name="purge.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>325, 457</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 9</value>
+  </data>
+  <data name="&gt;&gt;configBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="coremodsBox.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopRight</value>
+  </data>
+  <data name="&gt;&gt;builtinModPackUniversal.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;modsBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;serversDatOldBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;serversDatOldBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="screenshotsBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 302</value>
+  </data>
+  <data name="&gt;&gt;variousModsBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;savesBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;sep.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="shaderpacksBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 348</value>
+  </data>
+  <data name="auto.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;structuresBox.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;builtinAll.Name" xml:space="preserve">
+    <value>builtinAll</value>
+  </data>
+  <data name="&gt;&gt;builtinVanilaCleaning.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="structuresBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 371</value>
+  </data>
+  <data name="configBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 164</value>
+  </data>
+  <data name="&gt;&gt;structuresBox.Name" xml:space="preserve">
+    <value>structuresBox</value>
+  </data>
+  <data name="shaderpacksBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="savesBox.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="serversDatBox.Text" xml:space="preserve">
+    <value>servers.dat</value>
+  </data>
+  <data name="serverresourcepacksBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;templates.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;loadTemplate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;screenshotsBox.Name" xml:space="preserve">
+    <value>screenshotsBox</value>
+  </data>
+  <data name="serversDatBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="configBox.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="optionsTxtBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 17</value>
+  </data>
+  <data name="&gt;&gt;modsBox.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="builtinModsOnly.Size" type="System.Drawing.Size, System.Drawing">
+    <value>292, 22</value>
+  </data>
+  <data name="&gt;&gt;serverresourcepacksBox.Name" xml:space="preserve">
+    <value>serverresourcepacksBox</value>
+  </data>
+  <data name="saveTemplate.Text" xml:space="preserve">
+    <value>Save custom template</value>
+  </data>
+  <data name="&gt;&gt;resourcepacksBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;structuresBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;builtinVanilaCleaning.Name" xml:space="preserve">
+    <value>builtinVanilaCleaning</value>
+  </data>
+  <data name="templates.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="structuresBox.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;shaderpacksBox.Name" xml:space="preserve">
+    <value>shaderpacksBox</value>
+  </data>
+  <data name="builtinVanilaCleaning.Text" xml:space="preserve">
+    <value>Vanilla maintance</value>
+  </data>
+  <data name="&gt;&gt;logsBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="saveTemplate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>292, 22</value>
+  </data>
+  <data name="serversDatOldBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;logsBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;serversDatOldBox.Name" xml:space="preserve">
+    <value>serversDatOldBox</value>
+  </data>
+  <data name="&gt;&gt;purge.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="serversDatBox.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="logsBox.Text" xml:space="preserve">
+    <value>logs</value>
+  </data>
+  <data name="sep.Size" type="System.Drawing.Size, System.Drawing">
+    <value>289, 6</value>
+  </data>
+  <data name="texturepacksBox.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="savesBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 279</value>
+  </data>
+  <data name="&gt;&gt;texturepacksBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="builtinAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>292, 22</value>
+  </data>
+  <data name="&gt;&gt;serversDatBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;auto.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="modsBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 17</value>
+  </data>
+  <data name="auto.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 424</value>
+  </data>
+  <data name="&gt;&gt;serversDatOldBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="builtinVanilaCleaning.Size" type="System.Drawing.Size, System.Drawing">
+    <value>292, 22</value>
+  </data>
+  <data name="templates.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="serversDatOldBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 17</value>
+  </data>
+  <data name="structuresBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;savesBox.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="logsBox.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="configBox.Text" xml:space="preserve">
+    <value>config</value>
+  </data>
+  <data name="&gt;&gt;optionsTxtBox.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="coremodsBox.Text" xml:space="preserve">
+    <value>coremods</value>
+  </data>
+  <data name="&gt;&gt;clearChecks.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="logsBox.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;builtinModsOnly.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <metadata name="uniToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <metadata name="templatesMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>126, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
 </root>

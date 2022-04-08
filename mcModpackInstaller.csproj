@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,8 +24,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ApplicationVersion>0.10.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -46,6 +46,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\mcModpackInstaller_small.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="SharpCompress, Version=0.31.0.0, Culture=neutral, PublicKeyToken=afb0a02973931d96, processorArchitecture=MSIL">
@@ -100,6 +103,16 @@
     <Compile Include="ClearMinecraftForm.Designer.cs">
       <DependentUpon>ClearMinecraftForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Localizations\Dialogs\FileDialogs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FileDialogs.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Localizations\MessageBox\MessageBox.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MessageBox.resx</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,13 +124,55 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Localizations\Status\Status.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Status.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Localizations\Tooltip\Tooltip.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Tooltip.resx</DependentUpon>
+    </Compile>
     <Compile Include="Workers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ClearMinecraftForm.en.resx">
+      <DependentUpon>ClearMinecraftForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClearMinecraftForm.resx">
       <DependentUpon>ClearMinecraftForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ClearMinecraftForm.ru.resx">
+      <DependentUpon>ClearMinecraftForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClearMinecraftForm.uk.resx">
+      <DependentUpon>ClearMinecraftForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Localizations\Dialogs\FileDialogs.en-US.resx" />
+    <EmbeddedResource Include="Resources\Localizations\Dialogs\FileDialogs.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FileDialogs.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Localizations\Dialogs\FileDialogs.ru-RU.resx" />
+    <EmbeddedResource Include="Resources\Localizations\Dialogs\FileDialogs.uk-UA.resx" />
+    <EmbeddedResource Include="Resources\Localizations\MessageBox\MessageBox.en-US.resx" />
+    <EmbeddedResource Include="Resources\Localizations\MessageBox\MessageBox.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MessageBox.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Localizations\MessageBox\MessageBox.ru-RU.resx" />
+    <EmbeddedResource Include="Resources\Localizations\MessageBox\MessageBox.uk-UA.resx" />
+    <EmbeddedResource Include="Resources\Localizations\Status\Status.en-US.resx" />
+    <EmbeddedResource Include="Resources\Localizations\Status\Status.ru-RU.resx" />
+    <EmbeddedResource Include="Resources\Localizations\Status\Status.uk-UA.resx" />
     <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.ru.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.uk.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -143,6 +198,17 @@
     <EmbeddedResource Include="Resources\jobsdone.wav" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Localizations\Status\Status.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Status.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Localizations\Tooltip\Tooltip.en-US.resx" />
+    <EmbeddedResource Include="Resources\Localizations\Tooltip\Tooltip.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Tooltip.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Localizations\Tooltip\Tooltip.ru-RU.resx" />
+    <EmbeddedResource Include="Resources\Localizations\Tooltip\Tooltip.uk-UA.resx" />
     <EmbeddedResource Include="Templates\Template_All.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
