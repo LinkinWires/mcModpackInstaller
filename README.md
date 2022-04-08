@@ -10,4 +10,7 @@ Small program written in C#/WinForms for installing mods and modpacks for Minecr
 
 ## Languages
 
-Currenty program is in Russian language only, but translations to English and Ukrainian are underway.
+Supports:
+- Englist
+- Russian;
+- Ukrainian.
