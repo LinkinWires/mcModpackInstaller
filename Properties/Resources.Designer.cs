@@ -68,5 +68,35 @@ namespace mcModpackInstaller.Properties {
                 return ResourceManager.GetStream("jobsdone", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon mcModpackInstaller {
+            get {
+                object obj = ResourceManager.GetObject("mcModpackInstaller", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon mcModpackInstaller_large {
+            get {
+                object obj = ResourceManager.GetObject("mcModpackInstaller_large", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon mcModpackInstaller_small {
+            get {
+                object obj = ResourceManager.GetObject("mcModpackInstaller_small", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
     }
 }

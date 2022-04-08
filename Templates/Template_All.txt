@@ -1,0 +1,15 @@
+﻿config
+coremods
+logs
+mods
+resourcepacks
+saves
+screenshots
+server-resource-packs
+shaderpacks
+structures
+texturepacks
+options.txt
+servers.dat
+servers.dat_old
+variousMods

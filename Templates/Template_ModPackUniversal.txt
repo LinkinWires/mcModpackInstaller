@@ -1,0 +1,8 @@
+﻿config
+coremods
+mods
+resourcepacks
+shaderpacks
+structures
+texturepacks
+variousMods

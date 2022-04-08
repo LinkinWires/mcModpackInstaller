@@ -1,6 +1,6 @@
 ﻿namespace mcModpackInstaller
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -39,7 +39,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.serviceButton = new System.Windows.Forms.Button();
             this.serviceMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.deleteMods = new System.Windows.Forms.ToolStripMenuItem();
             this.cleanMC = new System.Windows.Forms.ToolStripMenuItem();
             this.serviceMenu.SuspendLayout();
             this.SuspendLayout();
@@ -55,6 +54,7 @@
             // 
             // mcPath
             // 
+            this.mcPath.ForeColor = System.Drawing.SystemColors.WindowText;
             this.mcPath.Location = new System.Drawing.Point(12, 25);
             this.mcPath.Name = "mcPath";
             this.mcPath.Size = new System.Drawing.Size(465, 20);
@@ -131,18 +131,10 @@
             // serviceMenu
             // 
             this.serviceMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.deleteMods,
             this.cleanMC});
             this.serviceMenu.Name = "serviceMenu";
-            this.serviceMenu.Size = new System.Drawing.Size(181, 48);
+            this.serviceMenu.Size = new System.Drawing.Size(181, 26);
             this.serviceMenu.Text = "Сервис";
-            // 
-            // deleteMods
-            // 
-            this.deleteMods.Name = "deleteMods";
-            this.deleteMods.Size = new System.Drawing.Size(185, 22);
-            this.deleteMods.Text = "Удалить моды";
-            this.deleteMods.Click += new System.EventHandler(this.deleteMods_Click);
             // 
             // cleanMC
             // 
@@ -151,7 +143,7 @@
             this.cleanMC.Text = "Очистить Minecraft";
             this.cleanMC.Click += new System.EventHandler(this.cleanMC_Click);
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -165,7 +157,8 @@
             this.Controls.Add(this.dotmcFindStatus);
             this.Controls.Add(this.mcPath);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.MaximizeBox = false;
+            this.Name = "MainForm";
             this.Text = "mcModpackInstaller";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.serviceMenu.ResumeLayout(false);
@@ -186,7 +179,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button serviceButton;
         private System.Windows.Forms.ContextMenuStrip serviceMenu;
-        private System.Windows.Forms.ToolStripMenuItem deleteMods;
         private System.Windows.Forms.ToolStripMenuItem cleanMC;
     }
 }

@@ -1,0 +1,4 @@
+﻿logs
+screenshots
+server-resource-packs
+servers.dat_old
