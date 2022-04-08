@@ -11,6 +11,6 @@ Small program written in C#/WinForms for installing mods and modpacks for Minecr
 ## Languages
 
 Supports:
-- Englist
+- English;
 - Russian;
 - Ukrainian.
